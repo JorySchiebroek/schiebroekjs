@@ -1,10 +1,12 @@
-<nav class="navbar is-bold is-black is-fixed-top" role="navigation" aria-label="main navigation">
-  <div class="container is-fullhd">
+<nav class="navbar is-bold is-black is-fixed-top"
+     role="navigation"
+     aria-label="main navigation"
+>
+  <div class="container is-desktop">
     <div class="navbar-brand">
-      <a class="navbar-item schiebroekjs-logo" href="">
+      <a class="navbar-item js-logo" href="">
         <span class="has-text-white">Schiebroek</span>
         <span class="has-text-primary">.js</span>
-        <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
       </a>
 
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -14,53 +16,107 @@
       </a>
     </div>
 
-    <div class="dropdown is-hoverable">
-      <div class="dropdown-trigger">
-        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-          <span>Language</span>
-          <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </span>
-        </button>
-      </div>
-      <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-        <div class="dropdown-content">
-          <div class="dropdown-item">
-            <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end" fxLayout="row" fxLayoutAlign="center center">
+        <a [ngClass]="{ 'navbar-item': true, 'has-text-primary': true}">
+          About
+        </a>
+        <a [ngClass]="{ 'navbar-item': true, 'has-text-primary': false}">
+          Projects
+        </a>
+        <a [ngClass]="{ 'navbar-item': true, 'has-text-primary': false}">
+          Collaborations
+        </a>
+        <a [ngClass]="{ 'navbar-item': true, 'has-text-primary': false}">
+          Contact
+        </a>
+
+        <div class="dropdown is-hoverable">
+          <div class="dropdown-trigger">
+            <button class="button has-background-black has-border-black has-text-white" aria-haspopup="true" aria-controls="language-menu" style="border: none">
+              <img class="locale-flag" [src]="'../assets/locales/' + activeLocale + '.png'">
+              <span class="icon is-small">
+                <fa-icon [icon]="['fas', 'angle-down']" aria-hidden="true"></fa-icon>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="language-menu" role="menu">
+            <div class="dropdown-content">
+              <a *ngFor="let locale of locales"
+                 fxLayout="row"
+                 fxLayoutGap="8px"
+                 (click)="changeLanguage(locale)"
+                 [ngClass]="{'dropdown-item': true, 'is-active': activeLocale === locale}"
+              >
+                <img class="locale-flag" [src]="'../assets/locales/' + locale + '.png'">
+                <span>{{ locale | uppercase }}</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-end">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link has-text-white">
-            Language
-          </a>
-
-          <div class="navbar-dropdown" style="background: rgb(50,10,10)">
-            <a class="navbar-item">
-              <img class="company-image" src="../assets/United-Kingdom.png">
-            </a>
-            <a class="navbar-item">
-              <img class="company-image" src="../assets/Denmark.png">
-            </a>
-            <a class="navbar-item">
-              <img class="company-image" src="../assets/Netherlands.png">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div> -->
   </div>
 </nav>
 
 <!-- ABOUT ME -->
-<section class="section" style="padding-top: 104px; background-color: black">
+<section class="section js-about-section">
   <div class="container is-fullhd">
-    <div class="notification">
-      ABOUT ME
+    <div class="container is-fullhd has-text-centered">
+      <span class="title is-2 has-text-white">
+        Who am I?
+      </span>
+    </div>
+  </div>
+</section>
+<svg style="position: absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#00d1b2" fill-opacity="1" d="M0,160L60,144C120,128,240,96,360,90.7C480,85,600,107,720,144C840,181,960,235,1080,229.3C1200,224,1320,160,1380,128L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
+<section class="mb-10">
+  <div [ngClass]="{ 'mx-4': viewport > 399 }" fxLayout="row" fxLayoutAlign="center">
+    
+    <div class="card box p-0" style="width: 500px">
+      <div class="card-content has-text-centered p-5">
+        <div class="tile pb-2" fxLayout="row" fxLayoutAlign="center">
+          <img class="js-me" src="../assets/me.png">
+        </div>
+        <p class="title">
+          Jory Schiebroek
+        </p>
+        <p class="subtitle">
+          Front-End Developer & UI Designer
+        </p>
+      </div>
+
+      <footer class="card-footer">
+        <div [ngClass]="{'card-footer-item': true, 'p-5': viewport > 499, 'p-2': viewport < 500 }" fxLayout="column" fxLayoutAlign="start center">
+          <span [ngClass]="{ 'subtitle is-5 m-2': true, 'is-6': viewport < 420 }">Developer</span>
+          <span class="subtitle is-7 has-text-centered" style="min-height: 60px">
+            I like coding things from scratch, and bringing ideas to life in the browser.
+          </span>
+          <span class="subtitle is-6 m-0">Skills</span>
+          <div fxLayout="row wrap" fxLayoutGap="8px" fxLayoutAlign="center" style="min-height: 128px">
+            <span *ngFor="let skill of devSkills" class="tag is-light mx-05 mt-1">{{ skill }}</span>
+          </div>
+          <span class="subtitle is-6 mt-4 mb-1">Design tools</span>
+          <div class="mb-2" fxLayout="row wrap" fxLayoutAlign="center">
+            <img *ngFor="let tool of devTools" class="js-tool mx-05 mt-1" [src]="'../assets/tools/' + tool + '.png'" [alt]="tool">
+          </div>
+        </div>
+
+        <div [ngClass]="{'card-footer-item': true, 'p-5': viewport > 499, 'p-2': viewport < 500 }" fxLayout="column" fxLayoutAlign="start center">
+          <span [ngClass]="{ 'subtitle is-5 m-2': true, 'is-6': viewport < 420 }">Designer</span>
+          <span class="subtitle is-7 has-text-centered" style="min-height: 60px">
+            I value simplicity in structure and design, while optimising user experience.
+          </span>
+          <span class="subtitle is-6 m-0">Skills</span>
+          <div fxLayout="row wrap" fxLayoutAlign="center" style="min-height: 128px">
+            <span *ngFor="let skill of desSkills" class="tag is-light mx-05 mt-1">{{ skill }}</span>
+          </div>
+          <span class="subtitle is-6 mt-4 mb-1">Dev tools</span>
+          <div class="mb-2" fxLayout="row wrap" fxLayoutAlign="center">
+            <img *ngFor="let tool of desTools" class="js-tool mx-05 mt-1" [src]="'../assets/tools/' + tool + '.png'" [alt]="tool">
+          </div>
+        </div>
+      </footer>
     </div>
   </div>
 </section>
@@ -68,17 +124,54 @@
 <!-- PROJECT BAR (active when carousel) -->
 <section class="section" style="background-color: white">
   <div class="container is-fullhd">
-    <div class="notification">
-      PROJECT BAR
+    <div class="container is-fullhd has-text-centered mb-8">
+      <span class="title is-2">
+        My projects
+      </span>
     </div>
-  </div>
-</section>
+    
+    <div class="tile is-ancestor">
+      <div *ngFor="let project of projects; let i = index"
+           class="tile is-parent"
+      >
+        <div class="tile is-child">
+          <a [ngClass]="{ 'box js-project': true, 'js-project-active': project.title === activeProject.title }"
+             (click)="changeProject(project)"
+             fxLayout="row"
+             fxLayoutAlign="space-between center"
+          >
+          <div>
+            <p [ngClass]="{ 'title is-6': true, 'has-text-white': project.title === activeProject.title }">{{ project.title }}</p>
+            <p [ngClass]="{ 'subtitle is-7': true, 'has-text-white': project.title === activeProject.title }">{{ project.subtitle }}</p>
+          </div>
+          <fa-icon [icon]="project.icon" [styles]="{ 'color': project.title === activeProject.title ? '#ffffff' : 'default' }"></fa-icon>
+          </a>
+        </div>
+      </div>
+    </div>
 
-<!-- CAROUSEL -->
-<section class="section" style="background-color: black">
-  <div class="container is-fullhd">
-    <div class="notification">
-      PROJECT CAROUSEL
+    <div class="tile is-ancestor">
+      <div class="tile is-parent">
+        <article class="tile is-child box js-project-bg" fxLayout="row" [ngStyle]="{ 'backgroundImage': 'url(' + activeProject.bg + ')' }">
+          <div class="content" style="width: 50%">
+            <p class="title has-text-white">{{ activeProject.title }}</p>
+            <p class="subtitle has-text-white">{{ activeProject.subtitle }}</p>
+            <div class="content">
+              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <span *ngFor="let tool of activeProject.tools" class="tag is-black">{{ tool }}</span>
+              </div>
+              <div class="mt-4 mb-4">
+                <span class="has-text-white">{{ activeProject.description }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                <button class="button is-primary is-rounded">{{ activeProject.cta}}</button>
+              </div>
+            </div>
+          </div>
+          <div [ngClass]="{'tile is-child': true, 'js-project-img': activeProject.name === 'disney' }">
+          </div>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -86,42 +179,41 @@
 <!-- REFERENCES / COLLABORATIONS -->
 <section class="section" style="background-color: white">
   <div class="container is-fullhd has-text-centered">
-    <span class="is-size-3">
-      Companies I have collaborated with:
+    <span class="title is-2">
+      I enjoyed collaborating with:
     </span>
   </div>
-  <div class="container" style="margin-top: 50px">
-    <div fxLayout="row" fxLayoutAlign="space-between center" style="padding: 0 250px">
-        <img class="company-image" src="../assets/logos/disney.svg">
-        <img class="company-image" src="../assets/logos/grundfos.svg">
-        <img class="company-image" src="../assets/logos/quickpay.svg">
-    </div>
-    <div fxLayout="row" fxLayoutAlign="space-between center" style="padding: 0 250px">
-        <img class="company-image" src="../assets/logos/littlestudio.png" style="padding: 25px">
-        <img class="company-image" src="../assets/logos/inetdesign.png">
-        <img class="company-image" src="../assets/logos/lyshygge.png">
+  <div class="container mt-10 px-10" fxLayout="column" fxLayoutAlign="start center">
+    <div [ngClass]="{ 'px-10': viewport > 1407 }" fxLayout="row wrap" fxLayoutAlign="center">
+      <ng-container *ngFor="let partner of partners; let i = index">
+        <img [fxHide]="i > 3" class="m-5" [src]="partner" style="width: 200px">
+        <div [fxHide]="i < 4" class="m-5" style="width: 200px" fxLayout="row" fxLayoutAlign="center center">
+          <img [src]="partner">
+        </div>
+      </ng-container>
     </div>
   </div>
+</section>
+
+<!-- Wave -->
+<section fxLayout="column" fxLayoutAlign="start end">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#363636" fill-opacity="1" d="M0,160L60,170.7C120,181,240,203,360,224C480,245,600,267,720,245.3C840,224,960,160,1080,144C1200,128,1320,160,1380,176L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer has-background-dark">
   <div class="content has-text-centered">
-    <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="16px" style="margin: 32px 0">
-      <a class="button js-circle-btn" href="https://dribbble.com/JorySchiebroek" target="_blank">
-        <fa-icon [icon]="['fab', 'dribbble']"></fa-icon>
-      </a>
-      <a class="button js-circle-btn" href="https://www.linkedin.com/in/jory-schiebroek" target="_blank">
-        <fa-icon [icon]="['fab', 'linkedin']"></fa-icon>
-      </a>
-      <a class="button js-circle-btn" href="https://github.com/JorySchiebroek" target="_blank">
-        <fa-icon [icon]="['fab', 'github']"></fa-icon>
-      </a>
-      <a class="button js-circle-btn" href="mailto:joryschiebroek@gmail.com">
-        <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
+    <p class="title is-3 has-text-white">Let's talk!</p>
+    <div class="my-4 mx-3" fxLayout="row grid" fxLayoutAlign="center">
+      <a *ngFor="let media of some" class="button js-circle-btn m-1" [href]="media.href" target="_blank" aria-hidden="true">
+        <fa-icon [icon]="media.icon"></fa-icon>
       </a>
     </div>
-    <p class="has-text-white">Schiebroek.js © {{ year }}</p>
+    <p class="has-text-white">
+      <span class="js-logo" href="">
+        <span class="has-text-white">Schiebroek</span>
+        <span class="has-text-primary">.js</span>
+      </span> © {{ year }}</p>
     <div class="made-with-bulma">
       <img src="https://bulma.io/images/made-with-bulma--white.png" alt="Made with Bulma" width="163" height="31">
     </div>

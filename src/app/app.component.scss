@@ -1,15 +1,77 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+@import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
 
-.schiebroekjs-logo {
+$primary:    hsl(171, 100%, 41%);
+
+.mx-05 {
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+}
+
+.js-logo {
     font-family: 'Montserrat';
     font-weight: 700;
 }
+
+.js-about-section {
+    padding-top: 104px; // For navbar
+    // background-image: url('../assets/dark_bg.png');
+    // background-position: center;
+    // background-size: cover;
+
+    // background: rgb(50,115,220);
+    // background: linear-gradient(90deg, rgba(50,115,220,1) 0%, rgba(50,115,220,1) 50%, rgba(54,54,54,1) 50%, rgba(54,54,54,1) 100%);
+    
+    background: #00d1b2;
+}
+
+.js-about-box {
+    // background-color: #000;
+    // color: #fff;
+}
+
+.js-me {
+    width: 112px;
+    height: 112px;
+    border-radius: 56px;
+}
+
+.js-tool {
+    height: 32px;
+}
+
+.locale-flag {
+    width: 24px;
+}
+
 .is-transparent {
     background-color: rgba(0,0,0,0) !important;
 }
 
-.company-image {
-    width: 200px;
+.js-project {
+    height: 100%;
+    background-color: #ffffff;
+
+    &:hover {
+        box-shadow: 0 1em 1.5em -0.125em rgba(10,10,10,.1);
+    }
+
+    -webkit-transition: box-shadow .25s;
+            transition: box-shadow .25s;
+}
+.js-project-active {
+    background-color: $primary;
+}
+.js-project-bg {
+    background-image: url('../assets/dark_bg.png');
+    background-size: cover;
+    background-position: center;
+}
+.js-project-img {
+    background-image: url('../assets/dxd.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .js-circle-btn {
@@ -27,5 +89,5 @@
     }
 
     -webkit-transition: background-color .25s, color .25s;
-    transition: background-color .25s, color .25s;
+            transition: background-color .25s, color .25s;
 }

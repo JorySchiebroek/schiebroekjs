@@ -1,15 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ChartsModule } from 'ng2-charts';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgModule } from '@angular/core';
+
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import {
-  faEnvelope
+  faAngleDown,
+  faEnvelope,
+  faGamepad,
+  faMobileAlt,
+  faTabletAlt
 } from '@fortawesome/free-solid-svg-icons';
 import {
+  faAngular,
   faDribbble,
   faGithub,
-  faLinkedin
+  faLinkedin,
+  faReact,
+  faStackOverflow,
+  faVuejs
 } from '@fortawesome/free-brands-svg-icons';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,8 +30,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
+    ChartsModule,
     FlexLayoutModule,
     FontAwesomeModule
   ],
@@ -31,10 +42,18 @@ import { AppComponent } from './app.component';
 export class AppModule {
   constructor(library: FaIconLibrary) {
     library.addIcons(
+      faAngleDown,
+      faAngular,
       faDribbble,
       faEnvelope,
+      faGamepad,
       faGithub,
-      faLinkedin
+      faLinkedin,
+      faMobileAlt,
+      faReact,
+      faStackOverflow,
+      faTabletAlt,
+      faVuejs
     );
   }
 }

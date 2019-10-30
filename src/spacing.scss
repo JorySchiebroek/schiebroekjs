@@ -1,0 +1,59 @@
+$spaceamounts: (8, 16, 24, 32, 40, 48, 56, 64, 72, 80);
+
+.m-0 {
+    margin: 0 !important;
+}
+.p-0 {
+    padding: 0 !important;
+}
+@each $space in $spaceamounts {
+    $i: index($spaceamounts, $space);
+
+    .m-#{$i} {
+        margin: #{$space}px !important;
+    }
+    .my-#{$i} {
+        margin-top: #{$space}px !important;
+        margin-bottom: #{$space}px !important;
+    }
+    .mx-#{$i} {
+        margin-left: #{$space}px !important;
+        margin-right: #{$space}px !important;
+    }
+    .mt-#{$i} {
+        margin-top: #{$space}px !important;
+    }
+    .mb-#{$i} {
+        margin-bottom: #{$space}px !important;
+    }
+    .ml-#{$i} {
+        margin-left: #{$space}px !important;
+    }
+    .mr-#{$i} {
+        margin-right: #{$space}px !important;
+    }
+
+    .p-#{$i} {
+        padding: #{$space}px !important;
+    }
+    .py-#{$i} {
+        padding-top: #{$space}px !important;
+        padding-bottom: #{$space}px !important;
+    }
+    .px-#{$i} {
+        padding-left: #{$space}px !important;
+        padding-right: #{$space}px !important;
+    }
+    .pt-#{$i} {
+        padding-top: #{$space}px !important;
+    }
+    .pb-#{$i} {
+        padding-bottom: #{$space}px !important;
+    }
+    .pl-#{$i} {
+        padding-left: #{$space}px !important;
+    }
+    .pr-#{$i} {
+        padding-right: #{$space}px !important;
+    }
+}
