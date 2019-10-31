@@ -1,6 +1,15 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
-import { PARTNERS, PROJECTS, SOME } from './constants';
+import {
+  DESIGN_SKILLS,
+  DESIGN_TOOLS,
+  DEVELOPMENT_SKILLS,
+  DEVELOPMENT_TOOLS,
+  LOCALES,
+  PARTNERS,
+  PROJECTS,
+  SOME
+} from './constants';
 
 @Component({
   selector: 'app-root',
@@ -8,80 +17,99 @@ import { PARTNERS, PROJECTS, SOME } from './constants';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
+  @ViewChild('about', { static: false }) aboutElement: ElementRef;
+  @ViewChild('projectbar', { static: false }) projectsElement: ElementRef;
+  @ViewChild('collaborations', { static: false }) collaborationsElement: ElementRef;
+  @ViewChild('contact', { static: false }) contactElement: ElementRef;
+
+  aboutOffset: number;
+  activeLocale: string;
+  activeProject: any;
+  collaborationsOffset: number;
+  contactOffset: number;
+  currentActive: number;
+  desSkills: string[];
+  desTools: string[];
+  devSkills: string[];
+  devTools: string[];
+  locales: string[];
+  partners: string[];
+  projects: any[];
+  projectsOffset: number;
+  showBurgerMenu: boolean;
+  some: any[];
+  title: string;
   viewport: number;
+  year: number;
 
-  desSkills = ['Analysing', 'Concepting', 'Design', 'UX', 'Testing'];
-  desTools = ['sketch', 'photoshop', 'illustrator', 'figma'];
-  devSkills = ['HTML', 'Javascript', 'Scss', 'Angular', 'React', 'Vue', 'Ruby'];
-  devTools = ['iterm', 'postman', 'vscode'];
-  title = 'schiebroekjs';
-  year = new Date().getFullYear();
-
-  locales = ['en', 'da', 'nl'];
-  activeLocale = this.locales[0];
-
-  partners = PARTNERS;
-  projects = PROJECTS;
-  some = SOME;
-
-  activeProject = this.projects[0];
-
-  bothCharts = {
-    options: {
-      responsive: true,
-      legend: {
-        display: false
-      },
-      elements: {
-        point: {
-          radius: 0
-        },
-        line: {
-          borderColor: 'rgba(255,255,255,.25)'
-        }
-      },
-      scale: {
-        angleLines: {
-          display: false
-        },
-        ticks: {
-          display: false,
-          suggestedMin: 0,
-          suggestedMax: 100
-        }
-      }
-    },
-    type: 'radar'
-  };
-
-  developerChart = {
-    data: [
-      { data: [100, 90, 80, 80, 70, 70, 60], label: 'Development' }
-    ],
-    labels: ['HTML', 'Javascript', 'Scss', 'Angular', 'React', 'Vue', 'Ruby']
-  };
-
-  designerChart = {
-    data: [
-      { data: [60, 80, 90, 90, 70], label: 'Design' }
-    ],
-    labels: ['Analysing', 'Concepting', 'Design', 'UX', 'Testing']
-  };
+  @HostListener('window:scroll', ['$event'])
+  checkOffsetTop() {
+    this.setActiveNavItem();
+  }
 
   @HostListener('window:resize', ['$event'])
   onresize() {
     this.getViewport();
+    this.getOffsets();
   }
 
+  constructor() { }
+
   ngOnInit() {
-    this.changeLanguage(navigator.language.substring(0, 2));
+    this.desSkills = DESIGN_SKILLS;
+    this.desTools = DESIGN_TOOLS;
+    this.devSkills = DEVELOPMENT_SKILLS;
+    this.devTools = DEVELOPMENT_TOOLS;
+    this.locales = LOCALES;
+    this.partners = PARTNERS;
+    this.projects = PROJECTS;
+    this.showBurgerMenu = false;
+    this.some = SOME;
+    this.title = 'schiebroekjs';
+    this.year = new Date().getFullYear();
+
+    this.activeLocale = this.locales[0];
+    this.activeProject = this.projects[0];
+    this.currentActive = 1;
+
     this.getViewport();
+    this.changeLanguage(navigator.language.substring(0, 2));
+  }
+
+  ngAfterViewInit() {
+    this.getOffsets();
+    this.setActiveNavItem();
   }
 
   getViewport() {
     this.viewport = window.innerWidth;
-    console.log('viewport: ' + this.viewport);
+  }
+
+  getOffsets() {
+    const offset = -500;
+    this.aboutOffset = this.aboutElement.nativeElement.offsetTop + offset;
+    this.projectsOffset = this.projectsElement.nativeElement.offsetTop + offset;
+    this.collaborationsOffset = this.collaborationsElement.nativeElement.offsetTop + offset;
+    this.contactOffset = this.contactElement.nativeElement.offsetTop + offset;
+  }
+
+  setActiveNavItem() {
+    if (window.pageYOffset >= this.aboutOffset && window.pageYOffset < this.projectsOffset) {
+      this.currentActive = 1;
+    } else if (window.pageYOffset >= this.projectsOffset && window.pageYOffset < this.collaborationsOffset) {
+      this.currentActive = 2;
+    } else if (window.pageYOffset >= this.collaborationsOffset && window.pageYOffset < this.contactOffset) {
+      this.currentActive = 3;
+    } else if (window.pageYOffset >= this.contactOffset) {
+      this.currentActive = 4;
+    } else {
+      this.currentActive = 1;
+    }
+  }
+
+  scrollTo(el: HTMLElement) {
+    el.scrollIntoView({ behavior: 'smooth' });
   }
 
   changeLanguage(language) {
@@ -95,12 +123,4 @@ export class AppComponent implements OnInit {
       this.activeProject = project;
     }
   }
-
-  // public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-  //   console.log(event, active);
-  // }
-
-  // public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
-  //   console.log(event, active);
-  // }
 }

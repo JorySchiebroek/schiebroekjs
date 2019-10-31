@@ -1,3 +1,13 @@
+export const DESIGN_SKILLS = ['Analysing', 'Concepting', 'Design', 'UX', 'Testing'];
+
+export const DESIGN_TOOLS = ['sketch', 'photoshop', 'illustrator', 'figma'];
+
+export const DEVELOPMENT_SKILLS = ['HTML', 'Javascript', 'Scss', 'Angular', 'React', 'Vue', 'Ruby'];
+
+export const DEVELOPMENT_TOOLS = ['iterm', 'postman', 'vscode'];
+
+export const LOCALES = ['en', 'da', 'nl'];
+
 export const PARTNERS = [
     '../assets/logos/disney.svg',
     '../assets/logos/grundfos.svg',
@@ -7,24 +17,7 @@ export const PARTNERS = [
     '../assets/logos/lyshygge.png'
 ];
 
-export const SOME = [{
-    icon: ['fab', 'dribbble'],
-    href: 'https://dribbble.com/JorySchiebroek'
-}, {
-    icon: ['fab', 'linkedin'],
-    href: 'https://www.linkedin.com/in/jory-schiebroek'
-}, {
-    icon: ['fab', 'github'],
-    href: 'https://github.com/JorySchiebroek'
-}, {
-    icon: ['fab', 'stack-overflow'],
-    href: 'https://stackoverflow.com/users/12291204/jsc'
-}, {
-    icon: ['fas', 'envelope'],
-    href: 'mailto:joryschiebroek@gmail.com'
-}];
-
-export const PROJECTS = [{
+export const PROJECTS: Array<any> = [{
     name: 'disney',
     icon: ['fas', 'gamepad'],
     bg: '../assets/pbg_bg.jpg',
@@ -88,4 +81,21 @@ export const PROJECTS = [{
     description: 'During my education at Avans University I built a platform to monitor your online behaviour on various social media.',
     tools: ['HTML', 'CSS', 'Javascript', 'Vue'],
     cta: 'View demo'
+}];
+
+export const SOME = [{
+    icon: ['fab', 'dribbble'],
+    href: 'https://dribbble.com/JorySchiebroek'
+}, {
+    icon: ['fab', 'linkedin'],
+    href: 'https://www.linkedin.com/in/jory-schiebroek'
+}, {
+    icon: ['fab', 'github'],
+    href: 'https://github.com/JorySchiebroek'
+}, {
+    icon: ['fab', 'stack-overflow'],
+    href: 'https://stackoverflow.com/users/12291204/jsc'
+}, {
+    icon: ['fas', 'envelope'],
+    href: 'mailto:joryschiebroek@gmail.com'
 }];

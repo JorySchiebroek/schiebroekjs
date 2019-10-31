@@ -1,3 +1,4 @@
+<div #top id="top"></div>
 <nav class="navbar is-bold is-black is-fixed-top"
      role="navigation"
      aria-label="main navigation"
@@ -9,29 +10,29 @@
         <span class="has-text-primary">.js</span>
       </a>
 
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <a role="button" [ngClass]="{'navbar-burger burger': true, 'is-active': showBurgerMenu }" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" (click)="showBurgerMenu = !showBurgerMenu">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-end" fxLayout="row" fxLayoutAlign="center center">
-        <a [ngClass]="{ 'navbar-item': true, 'has-text-primary': true}">
+    <div id="navbarBasicExample" [ngClass]="{'navbar-menu': true, 'is-active': showBurgerMenu }">
+      <div class="navbar-end" [fxLayout]="viewport >= 1024 ? 'row' : 'column'" fxLayoutAlign="center center">
+        <a (click)="scrollTo(top)" [ngClass]="{ 'navbar-item': true, 'has-text-primary': currentActive === 1 }">
           About
         </a>
-        <a [ngClass]="{ 'navbar-item': true, 'has-text-primary': false}">
+        <a (click)="scrollTo(projectbar)" [ngClass]="{ 'navbar-item': true, 'has-text-primary': currentActive === 2 }">
           Projects
         </a>
-        <a [ngClass]="{ 'navbar-item': true, 'has-text-primary': false}">
+        <a (click)="scrollTo(collaborations)" [ngClass]="{ 'navbar-item': true, 'has-text-primary': currentActive === 3 }">
           Collaborations
         </a>
-        <a [ngClass]="{ 'navbar-item': true, 'has-text-primary': false}">
+        <a (click)="scrollTo(contact)" [ngClass]="{ 'navbar-item': true, 'has-text-primary': currentActive === 4 }">
           Contact
         </a>
 
-        <div class="dropdown is-hoverable">
+        <div *ngIf="viewport >= 1024" class="dropdown is-hoverable">
           <div class="dropdown-trigger">
             <button class="button has-background-black has-border-black has-text-white" aria-haspopup="true" aria-controls="language-menu" style="border: none">
               <img class="locale-flag" [src]="'../assets/locales/' + activeLocale + '.png'">
@@ -54,6 +55,18 @@
             </div>
           </div>
         </div>
+
+        <div *ngIf="viewport < 1024" fxLayout="row" class="mt-4">
+          <button class="button is-white" *ngFor="let locale of locales"
+                 fxLayout="row"
+                 fxLayoutGap="8px"
+                 (click)="changeLanguage(locale)"
+                 [ngClass]="{'button is-white': true, 'is-active': activeLocale === locale}"
+          >
+                <img class="locale-flag" [src]="'../assets/locales/' + locale + '.png'">
+                <span>{{ locale | uppercase }}</span>
+              </button>
+        </div>
       </div>
     </div>
   </div>
@@ -70,7 +83,10 @@
   </div>
 </section>
 <svg style="position: absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#00d1b2" fill-opacity="1" d="M0,160L60,144C120,128,240,96,360,90.7C480,85,600,107,720,144C840,181,960,235,1080,229.3C1200,224,1320,160,1380,128L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
-<section class="mb-10">
+<section #about
+         id="about"
+         class="mb-10"
+>
   <div [ngClass]="{ 'mx-4': viewport > 399 }" fxLayout="row" fxLayoutAlign="center">
     
     <div class="card box p-0" style="width: 500px">
@@ -122,7 +138,11 @@
 </section>
 
 <!-- PROJECT BAR (active when carousel) -->
-<section class="section" style="background-color: white">
+<section #projectbar
+         id="projectbar"
+         class="section"
+         style="background-color: white"
+>
   <div class="container is-fullhd">
     <div class="container is-fullhd has-text-centered mb-8">
       <span class="title is-2">
@@ -177,7 +197,11 @@
 </section>
 
 <!-- REFERENCES / COLLABORATIONS -->
-<section class="section" style="background-color: white">
+<section #collaborations
+         id="collaborations"
+         class="section"
+         style="background-color: white"
+>
   <div class="container is-fullhd has-text-centered">
     <span class="title is-2">
       I enjoyed collaborating with:
@@ -201,7 +225,10 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="footer has-background-dark">
+<footer #contact
+        id="contact"
+        class="footer has-background-dark"
+>
   <div class="content has-text-centered">
     <p class="title is-3 has-text-white">Let's talk!</p>
     <div class="my-4 mx-3" fxLayout="row grid" fxLayoutAlign="center">

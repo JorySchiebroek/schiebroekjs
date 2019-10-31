@@ -1,3 +1,5 @@
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ChartsModule } from 'ng2-charts';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -20,10 +22,6 @@ import {
   faStackOverflow,
   faVuejs
 } from '@fortawesome/free-brands-svg-icons';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
 
 @NgModule({
   declarations: [
