@@ -6,6 +6,12 @@ $spaceamounts: (8, 16, 24, 32, 40, 48, 56, 64, 72, 80);
 .p-0 {
     padding: 0 !important;
 }
+
+.mx-05 {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+
 @each $space in $spaceamounts {
     $i: index($spaceamounts, $space);
 

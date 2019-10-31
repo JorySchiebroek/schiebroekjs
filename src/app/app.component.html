@@ -109,12 +109,12 @@
             I like coding things from scratch, and bringing ideas to life in the browser.
           </span>
           <span class="subtitle is-6 m-0">Skills</span>
-          <div fxLayout="row wrap" fxLayoutGap="8px" fxLayoutAlign="center" style="min-height: 128px">
+          <div fxLayout="row wrap" fxLayoutGap="8px" fxLayoutAlign="center" style="min-height: 60px">
             <span *ngFor="let skill of devSkills" class="tag is-light mx-05 mt-1">{{ skill }}</span>
           </div>
           <span class="subtitle is-6 mt-4 mb-1">Design tools</span>
           <div class="mb-2" fxLayout="row wrap" fxLayoutAlign="center">
-            <img *ngFor="let tool of devTools" class="js-tool mx-05 mt-1" [src]="'../assets/tools/' + tool + '.png'" [alt]="tool">
+            <img *ngFor="let tool of devTools" class="js-tool mx-05" [src]="'../assets/tools/' + tool + '.png'" [alt]="tool">
           </div>
         </div>
 
@@ -124,12 +124,12 @@
             I value simplicity in structure and design, while optimising user experience.
           </span>
           <span class="subtitle is-6 m-0">Skills</span>
-          <div fxLayout="row wrap" fxLayoutAlign="center" style="min-height: 128px">
+          <div fxLayout="row wrap" fxLayoutAlign="center" style="min-height: 60px">
             <span *ngFor="let skill of desSkills" class="tag is-light mx-05 mt-1">{{ skill }}</span>
           </div>
           <span class="subtitle is-6 mt-4 mb-1">Dev tools</span>
           <div class="mb-2" fxLayout="row wrap" fxLayoutAlign="center">
-            <img *ngFor="let tool of desTools" class="js-tool mx-05 mt-1" [src]="'../assets/tools/' + tool + '.png'" [alt]="tool">
+            <img *ngFor="let tool of desTools" class="js-tool mx-05" [src]="'../assets/tools/' + tool + '.png'" [alt]="tool">
           </div>
         </div>
       </footer>
