@@ -11,4 +11,7 @@ export class MembershipComponent implements OnInit {
 
     ngOnInit() { }
 
+    navigate(url) {
+        window.open(url);
+    }
 }

@@ -24,6 +24,7 @@ import {
   faJsSquare,
   faLinkedin,
   faReact,
+  faSass,
   faSketch,
   faStackOverflow,
   faVuejs
@@ -75,6 +76,7 @@ export class AppModule {
       faMobileAlt,
       faReact,
       faRocket,
+      faSass,
       faSketch,
       faStackOverflow,
       faTabletAlt,

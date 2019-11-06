@@ -19,7 +19,9 @@
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.
 </p>
 
-<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-    <img class="store-badge" src="../../../assets/logos/appstore.svg" (click)="openRemote()">
-    <img class="store-badge" src="../../../assets/logos/googleplay.svg" (click)="openRemote()">
+<hr>
+
+<div fxLayout fxLayoutAlign="center center" fxLayoutGap="8px" class="mt-2">
+    <img class="store-badge" src="../assets/logos/appstore.svg" (click)="navigate('https://apps.apple.com/us/app/grundfos-go-remote/id524685121')">
+    <img class="store-badge" src="../assets/logos/googleplay.svg" (click)="navigate('https://play.google.com/store/apps/details?id=com.grundfos.go&hl=nl')">
 </div>

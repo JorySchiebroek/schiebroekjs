@@ -11,6 +11,10 @@
                     <fa-icon [icon]="['fab', 'html5']" aria-hidden="true" size="lg" [styles]="{'color': 'rgb(255, 165, 2)'}"></fa-icon>
                 </div>
                 
+                <div *ngIf="project.tools.includes('SCSS')" style="background-color: rgba(238, 130, 239, .3); width: 40px; height: 40px; border-radius: 8px;" fxLayout fxLayoutAlign="center center">
+                    <fa-icon [icon]="['fab', 'sass']" aria-hidden="true" size="lg" [styles]="{'color': 'rgb(238, 130, 239)'}"></fa-icon>
+                </div>
+                
                 <div *ngIf="project.tools.includes('CSS')" style="background-color: rgba(29, 145, 255, .3); width: 40px; height: 40px; border-radius: 8px;" fxLayout fxLayoutAlign="center center">
                     <fa-icon [icon]="['fab', 'css3-alt']" aria-hidden="true" size="lg" [styles]="{'color': 'rgb(29, 145, 255)'}"></fa-icon>
                 </div>

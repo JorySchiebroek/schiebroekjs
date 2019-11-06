@@ -2,7 +2,7 @@ export const DESIGN_SKILLS = ['Analysing', 'Concepting', 'Design', 'UX', 'Testin
 
 export const DESIGN_TOOLS = ['sketch', 'photoshop', 'illustrator', 'figma'];
 
-export const DEVELOPMENT_SKILLS = ['HTML', 'Javascript', 'Scss', 'Angular', 'React', 'Vue', 'Ruby'];
+export const DEVELOPMENT_SKILLS = ['HTML', 'CSS', 'Javascript', 'SCSS', 'Angular', 'React', 'Vue', 'Ruby'];
 
 export const DEVELOPMENT_TOOLS = ['iterm', 'postman', 'vscode'];
 
@@ -38,7 +38,7 @@ export const PROJECTS: Array<any> = [{
     tags: ['webapp'],
     description: 'When I moved to Denmark, I discovered the fishing sport. \
         I needed to learn a lot of information and decided to develop an app to keep track of what I caught, where, and how.',
-    tools: ['HTML', 'CSS', 'Javascript', 'Angular', 'React', 'Photoshop'],
+    tools: ['HTML', 'SCSS', 'Javascript', 'Angular', 'React', 'Photoshop'],
     buttons: {
         demo: 'https://brofish-react.firebaseapp.com/'
     }
@@ -81,10 +81,10 @@ export const PROJECTS: Array<any> = [{
     tags: ['webapp'],
     description: 'I completed the minor Digital Experience Design at Fontys University in Eindhoven in 2017, \
         and during that minor I built a digital dashboard to manage all kinds of subscriptions.',
-    tools: ['HTML', 'CSS', 'Javascript', 'Vue', 'Photoshop'],
+    tools: ['HTML', 'SCSS', 'Javascript', 'Vue', 'Photoshop'],
     remote: '',
     buttons: {
-        demo: 'https://membership-d924e.web.app/'
+        demo: 'https://membership-d924e.firebaseapp.com/'
     }
 }, {
     name: 'checkme',
@@ -97,7 +97,7 @@ export const PROJECTS: Array<any> = [{
     tools: ['HTML', 'CSS', 'Javascript', 'Vue'],
     remote: '',
     buttons: {
-        demo: 'https://check-me-2016.web.app/'
+        demo: 'https://check-me-2016.firebaseapp.com/'
     }
 }];
 

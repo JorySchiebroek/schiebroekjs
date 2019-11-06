@@ -11,4 +11,7 @@ export class DisneyComponent implements OnInit {
 
     ngOnInit() { }
 
+    navigate(url) {
+        window.open(url);
+    }
 }

@@ -178,7 +178,19 @@
             <p class="subtitle has-text-white">{{ activeProject.subtitle }}</p>
             <div class="content">
               <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-                  <span *ngFor="let tool of activeProject.tools" class="tag is-black">{{ tool }}</span>
+                <div *ngFor="let tool of activeProject.tools" class="tag is-black" fxLayout fxLayoutGap="8px">
+                  <fa-icon *ngIf="tool == 'HTML'" [icon]="['fab', 'html5']" aria-hidden="true" [styles]="{'color': 'rgb(255, 165, 2)'}"></fa-icon>
+                  <fa-icon *ngIf="tool == 'CSS'" [icon]="['fab', 'css3-alt']" aria-hidden="true" [styles]="{'color': 'rgb(29, 145, 255)'}"></fa-icon>
+                  <fa-icon *ngIf="tool == 'SCSS'" [icon]="['fab', 'sass']" aria-hidden="true" [styles]="{'color': 'rgb(238, 130, 239)'}"></fa-icon>
+                  <fa-icon *ngIf="tool == 'Javascript'" [icon]="['fab', 'js-square']" aria-hidden="true" [styles]="{'color': 'rgb(255, 215, 1)'}"></fa-icon>
+                  <fa-icon *ngIf="tool == 'Phaser'" [icon]="['fas', 'rocket']" aria-hidden="true" [styles]="{'color': 'rgb(124, 104, 238)'}"></fa-icon>
+                  <fa-icon *ngIf="tool == 'Angular'" [icon]="['fab', 'angular']" aria-hidden="true" [styles]="{'color': 'rgb(220, 20, 60)'}"></fa-icon>
+                  <fa-icon *ngIf="tool == 'React'" [icon]="['fab', 'react']" aria-hidden="true" [styles]="{'color': 'rgb(0, 192, 255)'}"></fa-icon>
+                  <fa-icon *ngIf="tool == 'Photoshop'" [icon]="['fab', 'adobe']" aria-hidden="true" [styles]="{'color': 'rgb(255, 2, 0)'}"></fa-icon>
+                  <fa-icon *ngIf="tool == 'Sketch'" [icon]="['fab', 'sketch']" aria-hidden="true" [styles]="{'color': 'rgb(255, 165, 2)'}"></fa-icon>
+                  <fa-icon *ngIf="tool == 'Vue'" [icon]="['fab', 'vuejs']" aria-hidden="true" [styles]="{'color': 'rgb(65, 224, 208)'}"></fa-icon>
+                  <span>{{ tool }}</span>
+                </div>
               </div>
               <div class="mt-4 mb-4">
                 <span class="has-text-white">{{ activeProject.description }}</span>
@@ -201,9 +213,8 @@
               <div class="media-device" style="margin-top: -208px; margin-left: -250px">
                 <img width="500px" src="../assets/devices/imac.png">
               </div>
-              <div class="media-unit" style="margin-top: -180px; margin-left: -223px">
-                <!-- <video autoplay width="446px" height="250px" src="../assets/membership/membership_promo.mp4">
-                </video> -->
+              <div class="media-unit" style="margin-top: -190px; margin-left: -223px">
+                <img width="446px" src="../assets/brofish/react3.png">
               </div>
             </div>
 

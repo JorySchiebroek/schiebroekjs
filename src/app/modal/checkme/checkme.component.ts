@@ -11,4 +11,7 @@ export class CheckmeComponent implements OnInit {
 
     ngOnInit() { }
 
+    navigate(url) {
+        window.open(url);
+    }
 }
