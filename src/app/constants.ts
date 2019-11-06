@@ -20,67 +20,85 @@ export const PARTNERS = [
 export const PROJECTS: Array<any> = [{
     name: 'disney',
     icon: ['fas', 'gamepad'],
-    bg: '../assets/pbg_bg.jpg',
+    bg: '../assets/disney/disney_bg.jpg',
     title: 'Ice Picker',
     subtitle: 'Walt Disney Company',
     tags: ['Game'],
     description: 'For my 2017 internship at the Walt Disney Company \
         in the Netherlands, I worked on the concepting, designing and developing phases of a Christmas mini-game for Disney XD.',
     tools: ['HTML', 'CSS', 'Javascript', 'Phaser'],
-    cta: 'Play game'
+    buttons: {
+    }
 }, {
     name: 'brofish',
     icon: ['fab', 'react'],
-    bg: '../assets/underwater.gif',
+    bg: '../assets/brofish/brofish_bg.gif',
     title: 'Brofish',
     subtitle: 'Fishing HUB',
     tags: ['webapp'],
-    description: '',
+    description: 'When I moved to Denmark, I discovered the fishing sport. \
+        I needed to learn a lot of information and decided to develop an app to keep track of what I caught, where, and how.',
     tools: ['HTML', 'CSS', 'Javascript', 'Angular', 'React', 'Photoshop'],
-    cta: 'View demo'
+    buttons: {
+        demo: 'https://brofish-react.firebaseapp.com/'
+    }
 }, {
     name: 'belastingdienst',
     icon: ['fas', 'tablet-alt'],
-    bg: '../assets/gyg_bg.png',
+    bg: '../assets/belastingdienst/belastingdienst_bg.png',
     title: 'FTO',
     subtitle: 'Tax Authority (NL)',
     tags: ['App'],
     description: 'For my 2018 graduate internship at the Dutch Tax Authority, \
         I worked on the design of an app that would fix a communication problem within the Dutch Customs.',
-    tools: ['Sketch', 'Photoshop', 'C#'],
-    cta: 'View demo'
+    tools: ['Sketch', 'Photoshop'],
+    remote: '',
+    buttons: {
+        google: 'https://play.google.com/store/apps/developer?id=Belastingdienst&hl=nl',
+        apple: 'https://apps.apple.com/nl/developer/belastingdienst/id562870506#see-all/i-phonei-pad-apps'
+    }
 }, {
     name: 'grundfos',
     icon: ['fas', 'mobile-alt'],
-    bg: '../assets/bbg_bg.png',
+    bg: '../assets/grundfos/grundfos_bg.png',
     title: 'GO Remote',
     subtitle: 'Grundfos',
     tags: ['App'],
     description: 'I started Schiebroek.js in 2017, and my work was mainly for a Danish design studio called Little Studio. \
         I got the opportunity to work on the design for a mobile toolbox app for Grundfos.',
     tools: ['Sketch', 'Photoshop'],
-    cta: 'View mockups'
+    remote: '',
+    buttons: {
+        google: 'https://play.google.com/store/apps/details?id=com.grundfos.go&hl=nl',
+        apple: 'https://apps.apple.com/us/app/grundfos-go-remote/id524685121'
+    }
 }, {
     name: 'membership',
     icon: ['fab', 'vuejs'],
-    bg: '../assets/ggg_bg.jpg',
+    bg: '../assets/membership/membership_bg.jpg',
     title: 'Membership',
     subtitle: 'Subscription Manager',
     tags: ['webapp'],
     description: 'I completed the minor Digital Experience Design at Fontys University in Eindhoven in 2017, \
         and during that minor I built a digital dashboard to manage all kinds of subscriptions.',
     tools: ['HTML', 'CSS', 'Javascript', 'Vue', 'Photoshop'],
-    cta: 'View demo'
+    remote: '',
+    buttons: {
+        demo: 'https://membership-d924e.web.app/'
+    }
 }, {
     name: 'checkme',
     icon: ['fab', 'vuejs'],
-    bg: '../assets/bg_bg.jpg',
+    bg: '../assets/checkme/checkme_bg.jpg',
     title: 'Check me',
-    subtitle: 'SoMes Monitor',
+    subtitle: 'SoMe Monitor',
     tags: ['webapp'],
     description: 'During my education at Avans University I built a platform to monitor your online behaviour on various social media.',
     tools: ['HTML', 'CSS', 'Javascript', 'Vue'],
-    cta: 'View demo'
+    remote: '',
+    buttons: {
+        demo: 'https://check-me-2016.web.app/'
+    }
 }];
 
 export const SOME = [{

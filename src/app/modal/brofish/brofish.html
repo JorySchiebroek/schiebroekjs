@@ -1,0 +1,87 @@
+<p class="subtitle is-5 m-0 mt-4 mb-2">
+    Context
+</p>
+<p>
+    I moved to Denmark in the summer of 2018, and experienced a whole new start. I got a new job, new friends, and discovered new hobbies.
+    One of those hobbies was fishing. However, I had no experience with fishing whatsoever. I couldn't even tell different fish apart.
+    As my interest for fishing grew, I started to wonder if there weren't any tools that could help.
+    I asked my friends and tried some different apps, but they didn't quite match my expectations.
+    That's the moment I decided to do it myself, and began creating my web-app Brofish.
+</p>
+
+<div class="has-background-light js-is-rounded my-4 p-4" fxLayout="column" fxLayoutAlign="center center">
+    <img src="../../../assets/brofish/catch.png" class="js-is-rounded-sm">
+    <span class="mt-2">One of the first fishes I caught in Denmark</span>
+</div>
+
+<p class="subtitle is-5 m-0 mt-4 mb-2">
+    Approach
+</p>
+<p>
+    I started by making a list of what I would like to have in the app.
+    Next, I converted that list into many wireframes that developed into mockups over time.
+    Without having coded anything yet, I showed my friends my progress and we talked about improving the concept.
+</p>
+
+<div class="has-background-light js-is-rounded my-4 p-4" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px" style="width: 100%">
+    <img src="../../../assets/brofish/fishingmapp1.png" class="js-is-rounded-sm">
+    <img src="../../../assets/brofish/fishingmapp2.png" class="js-is-rounded-sm">
+    <div fxLayout fxLayoutGap="8px">
+        <img style="width: 244px" src="../../../assets/brofish/fishingmapp3.png" class="js-is-rounded-sm">
+        <img style="width: 244px" src="../../../assets/brofish/fishingmapp6.png" class="js-is-rounded-sm">
+    </div>
+    <img src="../../../assets/brofish/fishingmapp4.png" class="js-is-rounded-sm">
+    <img src="../../../assets/brofish/fishingmapp5.png" class="js-is-rounded-sm">
+    <span class="mt-2">Mockups from the app, then called Fishing Mapp</span>
+</div>
+
+<p>
+    When we had discussed all the base elements, it was time to start developing.
+    Up until here I had worked mostly with Vue, but I wanted to learn something new.
+    Since I had to learn more about Angular for my job, I decided to build this application with Angular as well.
+</p>
+
+<div class="has-background-light js-is-rounded my-4 p-4" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px" style="width: 100%">
+    <img src="../../../assets/brofish/angular1.png" class="js-is-rounded-sm">
+    <div fxLayout fxLayoutGap="8px">
+        <img style="width: 268px" src="../../../assets/brofish/angular2.png" class="js-is-rounded-sm">
+        <img style="width: 220px" src="../../../assets/brofish/angular4.png" class="js-is-rounded-sm">
+    </div>
+    <img src="../../../assets/brofish/angular5.png" class="js-is-rounded-sm">
+    <span class="mt-2">Screenshots from Brofish in Angular</span>
+</div>
+
+<p>
+    I worked in my free time, so the app did not progress very fast.
+    However, bit by bit there emerged a solid tool to support fishing fans with their hobby.
+    After half a year I was super familiar with Angular, and I wanted a new challenge.
+    My eye fell on React, and an interesting new design system that was compatible with it.
+    Therefore, I decided to rebuild the whole project with React.
+</p>
+
+<div class="has-background-light js-is-rounded my-4 p-4" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px" style="width: 100%">
+    <img src="../../../assets/brofish/react1.png" class="js-is-rounded-sm">
+    <img src="../../../assets/brofish/react2.png" class="js-is-rounded-sm">
+    <img src="../../../assets/brofish/react3.png" class="js-is-rounded-sm">
+    <img src="../../../assets/brofish/react4.png" class="js-is-rounded-sm">
+    <span class="mt-2">Screenshots from Brofish in React</span>
+</div>
+
+<p class="subtitle is-5 m-0 mt-4 mb-2">
+    Result
+</p>
+<p>
+    I have started field tests with the application, but needless to say I will never stop working on this project.
+    There will always be new things to add, or improvements of existing elements to improve the user experience and optimise the usability.
+</p>
+
+<div fxLayout fxLayoutAlign="start center" fxLayoutGap="8px" class="mt-2">
+    <button class="button is-black is-rounded" fxLayout fxLayoutGap="8px" (click)="navigate('https://brofish-dknl.firebaseapp.com/dashboard')">
+        <fa-icon [icon]="['fab', 'angular']" aria-hidden="true" size="lg" [styles]="{'color': 'rgb(220, 20, 60)'}"></fa-icon>
+        <span>View Angular demo</span>
+    </button>
+    <button class="button is-black is-rounded" fxLayout fxLayoutGap="8px" (click)="navigate('https://brofish-react.firebaseapp.com/')">
+        <fa-icon [icon]="['fab', 'react']" aria-hidden="true" size="lg" [styles]="{'color': 'rgb(0, 192, 255)'}"></fa-icon>
+        <span>View React demo</span>
+    </button>
+</div>

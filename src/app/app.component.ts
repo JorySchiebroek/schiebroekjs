@@ -38,6 +38,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   projects: any[];
   projectsOffset: number;
   showBurgerMenu: boolean;
+  showModal: boolean;
   some: any[];
   title: string;
   viewport: number;
@@ -54,7 +55,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.getOffsets();
   }
 
-  constructor() { }
+  constructor() {
+    this.currentActive = 1;
+  }
 
   ngOnInit() {
     this.desSkills = DESIGN_SKILLS;
@@ -65,6 +68,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.partners = PARTNERS;
     this.projects = PROJECTS;
     this.showBurgerMenu = false;
+    this.showModal = false;
     this.some = SOME;
     this.title = 'schiebroekjs';
     this.year = new Date().getFullYear();
@@ -79,7 +83,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.getOffsets();
-    this.setActiveNavItem();
   }
 
   getViewport() {
@@ -122,5 +125,17 @@ export class AppComponent implements OnInit, AfterViewInit {
     if (this.projects.includes(project)) {
       this.activeProject = project;
     }
+  }
+
+  openRemote(location) {
+    window.open(location);
+  }
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 }

@@ -1,0 +1,58 @@
+<div [ngClass]="{ 'modal': true, 'is-active': showModal }">
+    <div class="modal-background" (click)="close()"></div>
+    <div fxLayout="column" class="modal-content has-background-white p-5 js-is-rounded">
+        <div fxLayout fxLayoutAlign="space-between">
+            <div>
+                <h1 class="title">{{ project.title }}</h1>
+                <h1 class="subtitle">{{ project.subtitle }}</h1>
+            </div>
+            <div fxLayout fxLayoutAlign="start center" fxLayoutGap="8px">
+                <div *ngIf="project.tools.includes('HTML')" style="background-color: rgba(255, 165, 2, .3); width: 40px; height: 40px; border-radius: 8px;" fxLayout fxLayoutAlign="center center">
+                    <fa-icon [icon]="['fab', 'html5']" aria-hidden="true" size="lg" [styles]="{'color': 'rgb(255, 165, 2)'}"></fa-icon>
+                </div>
+                
+                <div *ngIf="project.tools.includes('CSS')" style="background-color: rgba(29, 145, 255, .3); width: 40px; height: 40px; border-radius: 8px;" fxLayout fxLayoutAlign="center center">
+                    <fa-icon [icon]="['fab', 'css3-alt']" aria-hidden="true" size="lg" [styles]="{'color': 'rgb(29, 145, 255)'}"></fa-icon>
+                </div>
+
+                <div *ngIf="project.tools.includes('Javascript')" style="background-color: rgba(255, 215, 1, .3); width: 40px; height: 40px; border-radius: 8px;" fxLayout fxLayoutAlign="center center">
+                    <fa-icon [icon]="['fab', 'js-square']" aria-hidden="true" size="lg" [styles]="{'color': 'rgb(255, 215, 1)'}"></fa-icon>
+                </div>
+
+                <div *ngIf="project.tools.includes('Phaser')" style="background-color: rgba(124, 104, 238, .3); width: 40px; height: 40px; border-radius: 8px;" fxLayout fxLayoutAlign="center center">
+                    <fa-icon [icon]="['fas', 'rocket']" aria-hidden="true" size="lg" [styles]="{'color': 'rgb(124, 104, 238)'}"></fa-icon>
+                </div>
+
+                <div *ngIf="project.tools.includes('Angular')" style="background-color: rgba(220, 20, 60, .3); width: 40px; height: 40px; border-radius: 8px;" fxLayout fxLayoutAlign="center center">
+                    <fa-icon [icon]="['fab', 'angular']" aria-hidden="true" size="lg" [styles]="{'color': 'rgb(220, 20, 60)'}"></fa-icon>
+                </div>
+
+                <div *ngIf="project.tools.includes('React')" style="background-color: rgb(0, 192, 255, .3); width: 40px; height: 40px; border-radius: 8px;" fxLayout fxLayoutAlign="center center">
+                    <fa-icon [icon]="['fab', 'react']" aria-hidden="true" size="lg" [styles]="{'color': 'rgb(0, 192, 255)'}"></fa-icon>
+                </div>
+
+                <div *ngIf="project.tools.includes('Photoshop')" style="background-color: rgba(255, 2, 0, .3); width: 40px; height: 40px; border-radius: 8px;" fxLayout fxLayoutAlign="center center">
+                    <fa-icon [icon]="['fab', 'adobe']" aria-hidden="true" size="lg" [styles]="{'color': 'rgb(255, 2, 0)'}"></fa-icon>
+                </div>
+
+                <div *ngIf="project.tools.includes('Sketch')" style="background-color: rgba(255, 165, 2, .3); width: 40px; height: 40px; border-radius: 8px;" fxLayout fxLayoutAlign="center center">
+                    <fa-icon [icon]="['fab', 'sketch']" aria-hidden="true" size="lg" [styles]="{'color': 'rgb(255, 165, 2)'}"></fa-icon>
+                </div>
+
+                <div *ngIf="project.tools.includes('Vue')" style="background-color: rgba(65, 224, 208, .3); width: 40px; height: 40px; border-radius: 8px;" fxLayout fxLayoutAlign="center center">
+                    <fa-icon [icon]="['fab', 'vuejs']" aria-hidden="true" size="lg" [styles]="{'color': 'rgb(65, 224, 208)'}"></fa-icon>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div style="max-height: 400px; width: 100%; overflow: scroll;">
+            <app-disney-component *ngIf="project.name == 'disney'"></app-disney-component>
+            <app-brofish-component *ngIf="project.name == 'brofish'"></app-brofish-component>
+            <app-belastingdienst-component *ngIf="project.name == 'belastingdienst'"></app-belastingdienst-component>
+            <app-grundfos-component *ngIf="project.name == 'grundfos'"></app-grundfos-component>
+            <app-membership-component *ngIf="project.name == 'membership'"></app-membership-component>
+            <app-checkme-component *ngIf="project.name == 'checkme'"></app-checkme-component>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close" (click)="close()"></button>
+</div>

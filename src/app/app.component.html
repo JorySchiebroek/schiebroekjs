@@ -106,7 +106,7 @@
         <div [ngClass]="{'card-footer-item': true, 'p-5': viewport > 499, 'p-2': viewport < 500 }" fxLayout="column" fxLayoutAlign="start center">
           <span [ngClass]="{ 'subtitle is-5 m-2': true, 'is-6': viewport < 420 }">Developer</span>
           <span class="subtitle is-7 has-text-centered" style="min-height: 60px">
-            I like coding things from scratch, and bringing ideas to life in the browser.
+            I love to write simple but effective code, turning an application into a smooth machine.
           </span>
           <span class="subtitle is-6 m-0">Skills</span>
           <div fxLayout="row wrap" fxLayoutGap="8px" fxLayoutAlign="center" style="min-height: 60px">
@@ -121,7 +121,7 @@
         <div [ngClass]="{'card-footer-item': true, 'p-5': viewport > 499, 'p-2': viewport < 500 }" fxLayout="column" fxLayoutAlign="start center">
           <span [ngClass]="{ 'subtitle is-5 m-2': true, 'is-6': viewport < 420 }">Designer</span>
           <span class="subtitle is-7 has-text-centered" style="min-height: 60px">
-            I value simplicity in structure and design, while optimising user experience.
+            I like to design with minimalist rules while optimising user experience to turn interactions into candy.
           </span>
           <span class="subtitle is-6 m-0">Skills</span>
           <div fxLayout="row wrap" fxLayoutAlign="center" style="min-height: 60px">
@@ -172,8 +172,8 @@
 
     <div class="tile is-ancestor">
       <div class="tile is-parent">
-        <article class="tile is-child box js-project-bg" fxLayout="row" [ngStyle]="{ 'backgroundImage': 'url(' + activeProject.bg + ')' }">
-          <div class="content" style="width: 50%">
+        <article class="tile is-child box js-project-bg" fxLayout fxLayoutAlign="start center" [ngStyle]="{ 'backgroundImage': 'url(' + activeProject.bg + ')' }">
+          <div class="content p-6" style="width: 50%; height: 450px">
             <p class="title has-text-white">{{ activeProject.title }}</p>
             <p class="subtitle has-text-white">{{ activeProject.subtitle }}</p>
             <div class="content">
@@ -184,11 +184,71 @@
                 <span class="has-text-white">{{ activeProject.description }}</span>
               </div>
               <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-                <button class="button is-primary is-rounded">{{ activeProject.cta}}</button>
+                <button class="button is-black is-light is-rounded" (click)="openModal()">Read more</button>
+                <button *ngIf="activeProject.buttons.demo" class="button is-black is-rounded" (click)="openRemote(activeProject.buttons.demo)">View demo</button>
+                <button *ngIf="activeProject.buttons.visuals" class="button is-black is-rounded">{{ activeProject.buttons.visuals}}</button>
+                <img *ngIf="activeProject.buttons.apple" class="store-badge" src="../assets/logos/appstore.svg" (click)="openRemote(activeProject.buttons.apple)">
+                <img *ngIf="activeProject.buttons.google" class="store-badge" src="../assets/logos/googleplay.svg" (click)="openRemote(activeProject.buttons.google)">
               </div>
             </div>
           </div>
-          <div [ngClass]="{'tile is-child': true, 'js-project-img': activeProject.name === 'disney' }">
+
+          <div style="width: 100%" fxLayout fxLayoutAlign="center center">
+            <!-- MEDIA -->
+            <img *ngIf="activeProject.name === 'disney'" src="../assets/disney/dxd.png" style="width: 75%">
+
+            <div class="media-container" *ngIf="activeProject.name === 'brofish'">
+              <div class="media-device" style="margin-top: -208px; margin-left: -250px">
+                <img width="500px" src="../assets/devices/imac.png">
+              </div>
+              <div class="media-unit" style="margin-top: -180px; margin-left: -223px">
+                <!-- <video autoplay width="446px" height="250px" src="../assets/membership/membership_promo.mp4">
+                </video> -->
+              </div>
+            </div>
+
+            <div class="media-container" *ngIf="activeProject.name === 'belastingdienst'">
+              <div class="media-device" style="margin-top: -224px; margin-left: -125px">
+                <img width="350px" src="../assets/devices/ipad_silver_portrait.png">
+              </div>
+              <div class="media-unit" style="margin-top: -196px; margin-left: -97px">
+                <video autoplay width="294px" height="392px" src="../assets/belastingdienst/fto_promo.mp4">
+                </video>
+              </div>
+              <div class="media-unit" style="margin-top: -170px; margin-left: -350px; z-index: 3">
+                <img width="300px" src="../assets/belastingdienst/fdrmx.png">
+              </div>
+            </div>
+
+            <div class="media-container" *ngIf="activeProject.name === 'grundfos'">
+              <div class="media-device" style="margin-top: -224px; margin-left: -105px">
+                <img width="210px" src="../assets/devices/iphone_spacegray.png">
+              </div>
+              <div class="media-unit" style="margin-top: -159px; margin-left: -87.5px">
+                <video autoplay width="178px" height="314px" src="../assets/grundfos/grundfos_promo.mp4">
+                </video>
+              </div>
+            </div>
+
+            <div class="media-container" *ngIf="activeProject.name === 'membership'">
+              <div class="media-device" style="margin-top: -208px; margin-left: -250px">
+                <img width="500px" src="../assets/devices/imac.png">
+              </div>
+              <div class="media-unit" style="margin-top: -180px; margin-left: -223px">
+                <video autoplay width="446px" height="250px" src="../assets/membership/membership_promo.mp4">
+                </video>
+              </div>
+            </div>
+
+            <div class="media-container" *ngIf="activeProject.name === 'checkme'">
+              <div class="media-device" style="margin-top: -208px; margin-left: -250px">
+                <img width="500px" src="../assets/devices/imac.png">
+              </div>
+              <div class="media-unit" style="margin-top: -180px; margin-left: -223px">
+                <!-- <video autoplay width="446px" height="250px" src="../assets/membership/membership_promo.mp4">
+                </video> -->
+              </div>
+            </div>
           </div>
         </article>
       </div>
@@ -249,3 +309,31 @@
     </div>
   </div>
 </footer>
+
+<!-- MODAL -->
+<app-modal-component [project]="activeProject" [showModal]="showModal" (closeModal)="showModal = false"></app-modal-component>
+<!-- <div [ngClass]="{ 'modal': true, 'is-active': showModal }">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">
+        <span class="title">
+          {{ activeProject.title }}
+        </span>
+        <span class="subtitle">
+          {{ activeProject.subtitle }}
+        </span>
+      </p>
+      <button class="delete" aria-label="close" (click)="closeModal()"></button>
+    </header>
+    <section class="modal-card-body">
+      
+    </section>
+    <footer class="modal-card-foot" fxLayout fxLayoutGap="8px">
+      <button *ngIf="activeProject.buttons.demo" class="button is-black is-rounded" (click)="openRemote(activeProject.buttons.demo)">View demo</button>
+      <button *ngIf="activeProject.buttons.visuals" class="button is-black is-rounded">{{ activeProject.buttons.visuals}}</button>
+      <img *ngIf="activeProject.buttons.apple" class="store-badge" src="../assets/logos/appstore.svg" (click)="openRemote(activeProject.buttons.apple)">
+      <img *ngIf="activeProject.buttons.google" class="store-badge" src="../assets/logos/googleplay.svg" (click)="openRemote(activeProject.buttons.google)">
+    </footer>
+  </div>
+</div> -->
