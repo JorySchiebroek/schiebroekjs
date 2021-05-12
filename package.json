@@ -26,7 +26,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "bulma": "^0.8.0",
-    "chart.js": "^2.9.0",
+    "chart.js": "^2.9.4",
     "ng2-charts": "^2.3.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
